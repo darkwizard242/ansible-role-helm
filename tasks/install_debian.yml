@@ -1,0 +1,13 @@
+---
+# tasks file for helm | Debian/Ubuntu Family
+
+- name: Debian/Ubuntu Family | Downloading and extracting {{ helm_app }} {{ helm_version }}
+  unarchive:
+    src: "{{ helm_dl_url }}"
+    dest: "{{ helm_bin_path }}"
+    extra_opts:
+      - --strip-components=1
+      - "linux-{{ helm_osarch }}/{{ helm_app }}"
+    remote_src: yes
+    owner: "{{ helm_file_owner }}"
+    group: "{{ helm_file_group }}"
