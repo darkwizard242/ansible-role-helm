@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helm_app: helm
-helm_version: 3.7.2
+helm_version: 3.8.0
 helm_osarch: amd64
 helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-linux-{{ helm_osarch }}.tar.gz
 helm_bin_path: /usr/local/bin
@@ -29,7 +29,7 @@ helm_file_group: root
 Variable        | Description
 --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
 helm_app        | Defines the app to install i.e. **helm**
-helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.7.2**
+helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.8.0**
 helm_osarch     | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
 helm_dl_url     | Defines URL to download the helm binary from.
 helm_bin_path   | Defined to dynamically set the appropriate path to store helm binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
