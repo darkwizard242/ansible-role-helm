@@ -11,3 +11,4 @@
     remote_src: yes
     owner: "{{ helm_file_owner }}"
     group: "{{ helm_file_group }}"
+    mode: "{{ helm_file_mode }}"
