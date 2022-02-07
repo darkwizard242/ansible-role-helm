@@ -3,8 +3,10 @@
 
 helm_app: helm
 helm_version: 3.8.0
-helm_osarch: amd64
-helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-linux-{{ helm_osarch }}.tar.gz
+helm_os: linux
+helm_arch: amd64
+helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
 helm_bin_path: /usr/local/bin
 helm_file_owner: root
 helm_file_group: root
+helm_file_mode: '0755'
