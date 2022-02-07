@@ -17,11 +17,13 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 helm_app: helm
 helm_version: 3.8.0
-helm_osarch: amd64
-helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-linux-{{ helm_osarch }}.tar.gz
+helm_os: linux
+helm_arch: amd64
+helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
 helm_bin_path: /usr/local/bin
 helm_file_owner: root
 helm_file_group: root
+helm_file_mode: '0755'
 ```
 
 ### Variables table:
@@ -30,11 +32,13 @@ Variable        | Description
 --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
 helm_app        | Defines the app to install i.e. **helm**
 helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.8.0**
-helm_osarch     | Defines os architecture. Used for obtaining the correct type of binaries based on OS System Architecture.
+helm_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
+helm_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 helm_dl_url     | Defines URL to download the helm binary from.
 helm_bin_path   | Defined to dynamically set the appropriate path to store helm binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
 helm_file_owner | Owner for the binary file of helm.
 helm_file_group | Group for the binary file of helm.
+helm_file_mode  | Mode for the binary file of helm.
 
 ## Dependencies
 
