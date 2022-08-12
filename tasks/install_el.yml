@@ -2,7 +2,7 @@
 # tasks file for helm | EL Family
 
 - name: EL Family | Downloading and extracting {{ helm_app }} {{ helm_version }}
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ helm_dl_url }}"
     dest: "{{ helm_bin_path }}"
     extra_opts:
