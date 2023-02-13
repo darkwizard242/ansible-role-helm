@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helm_app: helm
-helm_version: 3.11.0
+helm_version: 3.11.1
 helm_os: linux
 helm_arch: amd64
 helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
@@ -31,7 +31,7 @@ helm_file_mode: '0755'
 Variable        | Description
 --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
 helm_app        | Defines the app to install i.e. **helm**
-helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.11.0**
+helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.11.1**
 helm_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
 helm_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
 helm_dl_url     | Defines URL to download the helm binary from.
