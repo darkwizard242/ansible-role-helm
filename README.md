@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helm_app: helm
-helm_version: 3.11.1
+helm_version: 3.11.2
 helm_os: linux
 helm_arch: amd64
 helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
