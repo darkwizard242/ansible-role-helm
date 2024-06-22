@@ -3,9 +3,17 @@
 
 helm_app: helm
 helm_version: 3.15.2
-helm_os: linux
-helm_arch: amd64
-helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
+helm_os: "{{ ansible_system | lower }}"
+helm_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_architecture_map[ansible_architecture] }}.tar.gz
 helm_bin_path: /usr/local/bin
 helm_file_owner: root
 helm_file_group: root
