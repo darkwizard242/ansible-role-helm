@@ -17,9 +17,17 @@ Available variables are listed below (located in `defaults/main.yml`):
 ```yaml
 helm_app: helm
 helm_version: 3.15.2
-helm_os: linux
-helm_arch: amd64
-helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_arch }}.tar.gz
+helm_os: "{{ ansible_system | lower }}"
+helm_architecture_map:
+  amd64: amd64
+  arm: arm64
+  x86_64: amd64
+  armv6l: armv6
+  armv7l: armv7
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+helm_dl_url: https://get.{{ helm_app }}.sh/{{ helm_app }}-v{{ helm_version }}-{{ helm_os }}-{{ helm_architecture_map[ansible_architecture] }}.tar.gz
 helm_bin_path: /usr/local/bin
 helm_file_owner: root
 helm_file_group: root
@@ -28,17 +36,17 @@ helm_file_mode: '0755'
 
 ### Variables table:
 
-Variable        | Description
---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
-helm_app        | Defines the app to install i.e. **helm**
-helm_version    | Defined to dynamically fetch the desired version to install. Defaults to: **3.15.2**
-helm_os         | Defines os type. Used for obtaining the correct type of binaries based on OS type. Defaults to: **linux**
-helm_arch       | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture. Defaults to: **amd64**
-helm_dl_url     | Defines URL to download the helm binary from.
-helm_bin_path   | Defined to dynamically set the appropriate path to store helm binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
-helm_file_owner | Owner for the binary file of helm.
-helm_file_group | Group for the binary file of helm.
-helm_file_mode  | Mode for the binary file of helm.
+Variable              | Description
+--------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
+helm_app              | Defines the app to install i.e. **helm**
+helm_version          | Defined to dynamically fetch the desired version to install. Defaults to: **3.15.2**
+helm_os               | Defines os type. Used for obtaining the correct type of binaries based on OS type.
+helm_architecture_map | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture.
+helm_dl_url           | Defines URL to download the helm binary from.
+helm_bin_path         | Defined to dynamically set the appropriate path to store helm binary into. Defaults to (as generally available on any user's PATH): **/usr/local/bin**
+helm_file_owner       | Owner for the binary file of helm.
+helm_file_group       | Group for the binary file of helm.
+helm_file_mode        | Mode for the binary file of helm.
 
 ## Dependencies
 
