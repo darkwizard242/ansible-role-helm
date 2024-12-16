@@ -16,7 +16,7 @@ Available variables are listed below (located in `defaults/main.yml`):
 
 ```yaml
 helm_app: helm
-helm_version: 3.16.3
+helm_version: 3.16.4
 helm_os: "{{ ansible_system | lower }}"
 helm_architecture_map:
   amd64: amd64
@@ -39,7 +39,7 @@ helm_file_mode: '0755'
 Variable              | Description
 --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------
 helm_app              | Defines the app to install i.e. **helm**
-helm_version          | Defined to dynamically fetch the desired version to install. Defaults to: **3.16.3**
+helm_version          | Defined to dynamically fetch the desired version to install. Defaults to: **3.16.4**
 helm_os               | Defines os type. Used for obtaining the correct type of binaries based on OS type.
 helm_architecture_map | Defines os architecture. Used to set the correct type of binaries based on OS System Architecture.
 helm_dl_url           | Defines URL to download the helm binary from.
